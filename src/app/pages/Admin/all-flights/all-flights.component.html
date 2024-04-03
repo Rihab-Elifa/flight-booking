@@ -1,0 +1,27 @@
+<div class="row pb-2">
+    <div class="col-12 text-end">
+    <button class="btn btn-primary" routerLink="/new-flight">Add New</button>
+    </div>
+
+</div>
+<div class="class">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Airline</th>
+                    <th>Flight No</th>
+                    <th>Arrive1 Airport</th>
+                    <th>Departement Airport </th>
+                    <th>Travel Date</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of flightList; let sr=index"></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
