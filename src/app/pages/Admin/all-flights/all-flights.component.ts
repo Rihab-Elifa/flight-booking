@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MasterServiceService } from 'src/app/master-service.service';
 
 @Component({
   selector: 'app-all-flights',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./all-flights.component.scss']
 })
 export class AllFlightsComponent {
-  flightList: []=[];
+  flightList: any [] = [];
+
+  constructor(private master: MasterServiceService){}
+
+  ngOnInit(): void {
+    this.loadFlights();
+  }
+
+  loadFlights() {
+    this.master.getAllFlights().subscribe((res:any)=>{
+      this.flightList = res.data;
+    })
+  }
 }

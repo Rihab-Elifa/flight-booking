@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-flight.component.scss']
 })
 export class BookFlightComponent {
+  passendgerlist: any []= [];
 
+  addNew() {
+    const obj = {
+      "travelerName": "",
+      "contactNo": "",
+      "aadharNo": "",
+      "seatNo": 0
+    };
+    this.passendgerlist.unshift(obj)
+  }
 }

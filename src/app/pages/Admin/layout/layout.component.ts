@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
+  loggedUserData: any;
+  constructor(private router: Router) {
+    const localData= localStorage.getItem("FlightUser");
+    if(localData != null) {
+      this.loggedUserData =  JSON.parse(localData);
+    }
+  }
 
+  logoff() {
+    localStorage.removeItem('FlightUser');
+    this.router.navigateByUrl('/login')
+  }
 }
